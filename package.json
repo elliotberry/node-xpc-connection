@@ -25,6 +25,6 @@
     "darwin"
   ],
   "dependencies": {
-    "nan": "^2.4.0"
+    "nan": "^2.11.1"
   }
 }
