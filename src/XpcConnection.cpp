@@ -51,6 +51,7 @@ void XpcConnection::setup() {
   xpc_connection_set_event_handler(this->xpcConnnection, ^(xpc_object_t event) {
     xpc_retain(event);
     this->queueEvent(event);
+    NSLog(@"queueEvent: %@", event);
   });
 
   xpc_connection_resume(this->xpcConnnection);
