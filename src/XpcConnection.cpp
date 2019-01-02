@@ -51,7 +51,7 @@ void XpcConnection::setup() {
   xpc_connection_set_event_handler(this->xpcConnnection, ^(xpc_object_t event) {
     xpc_retain(event);
     this->queueEvent(event);
-    NSLog(@"queueEvent: %@", event);
+    //NSLog(@"queueEvent: %@", event);
   });
 
   xpc_connection_resume(this->xpcConnnection);
@@ -188,7 +188,7 @@ Local<Value> XpcConnection::XpcObjectToValue(xpc_object_t xpcObject) {
   } else if(valueType == XPC_TYPE_UUID) {
     value = Nan::CopyBuffer((char *)xpc_uuid_get_bytes(xpcObject), sizeof(uuid_t)).ToLocalChecked();
   } else {
-    NSLog(@"XpcObjectToValue: Could not convert to value!, %@", xpcObject);
+    //NSLog(@"XpcObjectToValue: Could not convert to value!, %@", xpcObject);
   }
 
   return value;
